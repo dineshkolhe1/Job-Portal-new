@@ -1,0 +1,61 @@
+import jwt from 'jsonwebtoken'
+import Company from '../models/Company.js'
+import User from '../models/User.js'
+
+export const protectCompany = async (req,res,next) => {
+
+    const token = req.headers.token
+
+    if(!token){
+        return res.json({success:false, message:'Not authorized, Login Again'})
+    }
+
+    try {
+        
+        const decoded = jwt.verify(token, process.env.JWT_SECRET)
+
+        req.company = await Company.findById(decoded.id).select('-password')
+
+        next()
+
+    } catch (error) {
+        res.json({success:false, message:error.message })
+    }
+}
+
+// For User authentication (Clerk)
+export const protectUser = async (req, res, next) => {
+    try {
+        // Use the new function syntax
+        const auth = req.auth()
+        
+        if (!auth.userId) {
+            return res.json({
+                success: false, 
+                message: 'Not authorized, Login Again'
+            })
+        }
+
+        // Get user from database
+        const user = await User.findById(auth.userId)
+        
+        if (!user) {
+            return res.json({
+                success: false, 
+                message: 'User Not Found'
+            })
+        }
+
+        req.user = user
+        req.userId = auth.userId
+        
+        next()
+
+    } catch (error) {
+        console.error('Auth error:', error)
+        res.json({
+            success: false, 
+            message: error.message
+        })
+    }
+}

@@ -1,22 +1,57 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Navbar from '../component/Navbar'
 import { assets, jobsApplied } from '../assets/assets'
 import moment from 'moment'
 import Footer from '../component/Footer'
+import { AppContext } from '../context/AppContext'
+import { toast } from 'react-toastify'
 
 const Application = () => {
+
+  const {user} = useUser()
+  const {getToken} = useAuth()
 
   const [isEdit,setIsEdit] = useState(false)
   const [resume,setResume] = useState()
 
+  const {backendUrl, userData, userApplications, fetchUserData} = useContext(AppContext)
+
+  const updateResume = async () => {
+
+      try {
+        
+        const formData = new FormData()
+        formData.append('resume',resume)
+
+        const token = await getToken()
+        const {data} = await axios.post(backendUrl+'/api/users/update-resume',
+          formData,
+          {headers:{Authorization : `Bearer ${token}`}}
+        )
+
+        if(data.success){
+          toast.sucess(data.message)
+          await fetchUserData()
+        }else{
+          toast.error(data.message)
+        }
+
+      } catch (error) {
+        toast.error(error.message)
+      }
+
+      setIsEdit(false)
+      setResume(null)
+  }
+
   return (
     <>
     <Navbar/>
-    <div className='container px-4 min-h-[64vh] 2xl:px-20 mx-auto my-10'>
+    <div className='container px-4 min-h-[65vh] 2xl:px-20 mx-auto my-10'>
       <h2 className='text-xl font-semibold'>Your Resume</h2>
       <div className='flex gap-2 mb-6 mt-3'>
         {
-          isEdit
+          isEdit || userData && userData.resume === ""
           ? <>
             <label className='flex items-center' htmlFor="resumeUpload">
               <p className='bg-blue-100 text-blue-600 px-4 py-2 rounded-lg mr-2'>Select Resume</p>
@@ -47,7 +82,7 @@ const Application = () => {
         </thead>
         <tbody>
           {jobsApplied.map((job,index)=> true ? (
-            <tr>
+            <tr key={job.id || index}>
               <td className='py-3 px-4 flex items-center gap-2 border-b'>
                 <img className='w-8 h-8' src={job.logo} alt="" />
                 {job.company}
