@@ -86,7 +86,7 @@ export const AppContextProvider = (props) =>{
             console.log("Clerk Token:", token);
 
             if (!token) {
-                console.log('No token available yet');
+                console.log('No token available ');
                 setLoadingUser(false);
                 return;
             }
