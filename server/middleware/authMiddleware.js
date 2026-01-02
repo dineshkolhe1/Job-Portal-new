@@ -25,37 +25,24 @@ export const protectCompany = async (req,res,next) => {
 
 // For User authentication (Clerk)
 export const protectUser = async (req, res, next) => {
-    try {
-        // Use the new function syntax
-        const auth = req.auth()
-        
-        if (!auth.userId) {
-            return res.json({
-                success: false, 
-                message: 'Not authorized, Login Again'
-            })
-        }
+  try {
+    const { userId } = req.auth;
 
-        // Get user from database
-        const user = await User.findById(auth.userId)
-        
-        if (!user) {
-            return res.json({
-                success: false, 
-                message: 'User Not Found'
-            })
-        }
-
-        req.user = user
-        req.userId = auth.userId
-        
-        next()
-
-    } catch (error) {
-        console.error('Auth error:', error)
-        res.json({
-            success: false, 
-            message: error.message
-        })
+    if (!userId) {
+      return res.json({
+        success: false,
+        message: "Not authorized, Login Again",
+      });
     }
-}
+
+    req.userId = userId;
+    next();
+
+  } catch (error) {
+    console.error("Auth error:", error);
+    res.json({
+      success: false,
+      message: error.message,
+    });
+  }
+};

@@ -10,7 +10,6 @@ import { toast } from "react-toastify";
 const RecruiterLogin = () => {
 
     const navigate = useNavigate()
-
     const [state, setState] = useState("Login");
     const [name, setName] = useState("");
     const [password, setpassword] = useState("");

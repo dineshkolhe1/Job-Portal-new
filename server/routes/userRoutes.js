@@ -10,12 +10,13 @@ const router = express.Router()
 //get user data
 router.get('/user', requireAuth(),protectUser, getUserData)
 
+
 //Apply for a job
 router.post('/apply', requireAuth(),protectUser, applyForjob)
 
 
 //get applied jobs data
-router.get('/application',protectUser,getUserJobApplication)
+router.get('/application',requireAuth(),protectUser,getUserJobApplication)
 
 
 //Update user profile (resume)

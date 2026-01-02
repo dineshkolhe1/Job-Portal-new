@@ -12,8 +12,6 @@ export const AppContextProvider = (props) =>{
     const {user} = useUser()
     const {getToken} = useAuth()
 
-     
-
     const [searchFilter,setSearchFilter] = useState({
         title:'',
         location:''
@@ -22,7 +20,6 @@ export const AppContextProvider = (props) =>{
     const [isSearched,setIsSearched] = useState(false)
     
     const [jobs,setJobs] = useState([])
- 
     const [showRecruiterLogin,setShowRecruiterLogin] = useState(false)
 
     const [companyToken,setCompanyToken] = useState(null)
@@ -35,7 +32,6 @@ export const AppContextProvider = (props) =>{
 
     //function to fetch jobs -
     const fetchJobs = async () =>{
-        // setJobs(jobsData)
         try {
             
             const {data} = await axios.get(backendUrl + '/api/jobs') 
@@ -76,26 +72,23 @@ export const AppContextProvider = (props) =>{
     const fetchUserData = async () => {
         try {
             console.log("Fetching user data...");
-
             if (!backendUrl) {
                 toast.error("Backend URL is not configured");
                 return;
             }
-
             const token = await getToken();
             console.log("Clerk Token:", token);
 
             if (!token) {
-                console.log('No token available ');
+                console.log('No token available yet');
                 setLoadingUser(false);
                 return;
             }
-
             const {data} = await axios.get(backendUrl + '/api/users/user',
                 {headers:{Authorization: `Bearer ${token}` },
-            });
-
-            console.log("Backend Response:", data);
+                withCredentials: true, 
+                });
+            // console.log("Backend Response:", data);
 
                 if(data.success){
                     setUserData(data.user)
@@ -107,6 +100,26 @@ export const AppContextProvider = (props) =>{
         }catch (error){
             console.log("❌ Fetch User Error:", error);
             setLoadingUser(false);
+            toast.error(error.message)
+        }
+    }
+
+    // function to fetch users applied application data 
+    const fetchUserApplications = async () => {
+        try{
+
+            const token = await getToken()
+
+            const {data} = await axios.get(backendUrl +'/api/users/application',
+                {headers: {Authorization : `Bearer ${token}`}}
+            )
+            if(data.success){
+                setUserApplications(data.application)
+            }else{
+                toast.error(error.message)
+            }
+
+        } catch (error){
             toast.error(error.message)
         }
     }
@@ -134,6 +147,7 @@ export const AppContextProvider = (props) =>{
     useEffect(() =>{
         if(user){
             fetchUserData()
+            fetchUserApplications()
         }
     },[user])
 
@@ -148,7 +162,8 @@ export const AppContextProvider = (props) =>{
         userData,setUserData,
         userApplications,setUserApplications,
         loadingUser,setLoadingUser,
-        fetchUserData
+        fetchUserData,
+        fetchUserApplications
         
 
     }

@@ -4,6 +4,7 @@ import {v2 as cloudinary} from 'cloudinary'
 import generateToken from "../utils/generateToken.js";
 import Job from "../models/job.js";
 import JobApplication from "../models/JobApplication.js";
+import { clerkClient } from "@clerk/clerk-sdk-node";
 
 
 // register a new company
@@ -127,8 +128,42 @@ export const postJob = async (req,res) => {
 }
 
 //Get Company job applicants
-export const getCompanyJobApplicants = async (req,res) =>{
+export const getCompanyJobApplicants = async (req, res) => {
+    try {
+        const companyId = req.company._id
 
+        // Find job applications for the company and populate related data
+        const applications = await JobApplication.find({ companyId })
+            .populate('user', 'clerkId name image resume')
+            .populate('jobId', 'title location category level salary')
+            .exec()
+
+        // Fetch fresh image URLs from Clerk
+        const enrichedApplications = await Promise.all(
+            applications.map(async (app) => {
+                const appObject = app.toObject(); // Convert to plain object
+                
+                if (appObject.user && appObject.user.clerkId) {
+                    try {
+                        // Get fresh user data from Clerk API
+                        const clerkUser = await clerkClient.users.getUser(appObject.user.clerkId);
+                        
+                        // Replace with fresh image URL
+                        appObject.user.image = clerkUser.imageUrl;
+                    } catch (error) {
+                        console.log(`Could not fetch Clerk user ${appObject.user.clerkId}:`, error.message);
+                        // Keep existing image as fallback
+                    }
+                }
+                return appObject;
+            })
+        );
+
+        return res.json({ success: true, applications: enrichedApplications })
+
+    } catch (error) {
+        res.json({ success: false, message: error.message })
+    }
 }
 
 //Get Company posted jobs
@@ -156,6 +191,21 @@ export const getCompanyPostedJobs = async (req,res) =>{
 
 //change job application Status
 export const ChangeJobApplicationStatus = async (req,res) =>{
+
+    try {
+        
+        const {id, status} = req.body
+
+    //Find job application and update status 
+    await JobApplication. findOneAndUpdate({_id: id},{status})
+
+    res.json({success:true, message:'Status Changed'})
+
+    } catch (error) {
+        res.json({success:false, message:error.message})
+    }
+
+    
 
 }
 

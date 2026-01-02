@@ -1,4 +1,4 @@
-import logo from "./logo.svg";
+import logo from "./logo2.svg";
 import search_icon from "./search_icon.svg";
 import company_icon from "./company_icon.svg";
 import microsoft_logo from "./microsoft_logo.svg";
@@ -33,6 +33,16 @@ import lock_icon from './lock_icon.svg'
 import samsung_logo from './samsung_logo.png'
 import adobe_logo from './adobe_logo.png'
 import amazon_logo from './amazon_logo.png'
+import zomato_logo from './zomato_logo.png'
+import swiggy_logo from './swiggy_logo.png'
+import Dominos_logo from './Dominos_logo.png'
+import mcDonalds_logo from './mcDonalds_logo.png'
+import OYO_logo from './OYO_logo.png'
+import Uber_Logo from './Uber_Logo.png'
+import ola_logo from './ola_logo.png'
+import burgerKing_logo from './burgerKing_logo.png'
+
+
 
 export const assets = {
     logo,
@@ -69,27 +79,40 @@ export const assets = {
     lock_icon,
     samsung_logo,
     adobe_logo,
-    amazon_logo
+    amazon_logo,
+    zomato_logo,
+    swiggy_logo,
+    Dominos_logo,
+    mcDonalds_logo,
+    OYO_logo,
+    Uber_Logo,
+    ola_logo,
+    burgerKing_logo
 }
 
 export const JobCategories = [
-    "Programming",
-    "Data Science",
-    "Designing",
-    "Networking",
-    "Management",
-    "Marketing",
-    "Cybersecurity",
+    "Restaurant Waiter",
+    "Fast Food Jobs",
+    "Bar & Pub Jobs",
+    "Driver Jobs",
+    "Shop Helper Jobs",
+    "Supermarket Jobs",
+    "Security Jobs",
+    "Cleaning Jobs",
+    "Technician Jobs",
+    "Hotel Jobs",
+    "Part-Time Jobs",
+    "Office Jobs",
+    "Tuition Jobs"
 ]
 
 export const JobLocations = [
-    "Bangalore",
-    "Washington",
-    "Hyderabad",
+    "Pune",
     "Mumbai",
-    "California",
+    "Bangalore",
+    "Hyderabad",
     "Chennai",
-    "New York"
+    "Indore"
 ]
 
 // Sample data for Manage Jobs Page

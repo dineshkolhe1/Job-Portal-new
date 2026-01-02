@@ -20,8 +20,8 @@ const Hero = () => {
   return (
     <div className='container 2xl:px-20 mx-auto my-10'>
       <div className='bg-gradient-to-r from-blue-800 to-blue-950 text-white py-16 text-center mx-2 rounded-xl'>
-        <h2 className='text-2xl md:text-3xl lg:text-4xl font-medium mb-4'>Your Gateway to Dream Careers!</h2>
-        <p className='mb-8 max-w-xl mx-auto text-sm font-light px-5'>Find the perfect job that matches your skills, passion, and ambitions. Whether you're taking the first step in your career or looking for a new challenge, we’re here to help you succeed.</p>
+        <h2 className='text-2xl md:text-3xl lg:text-4xl font-medium mb-4'>Find Work Near You, Anytime!</h2>
+        <p className='mb-8 max-w-xl mx-auto text-sm font-light px-5'>Find real work near you that matches your skills and hustle. Whether you’re starting fresh or looking for a new rojgaar, WorkWala is here to help you grow — apne area mein, apne logon ke saath.</p>
         <div className='flex items-center justify-between bg-white rounded text-gray-600 max-w-xl pl-4 mx-4 sm:mx-auto'>
             <div className='flex items-center'>
                 <img className='h-4 sm:h-5' src={assets.search_icon} alt="" />
@@ -43,15 +43,15 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className='border border-gray-300 shadow-md mx-2 mt-5 p-6 rounded-md flex'>
+      <div className='border border-gray-300 shadow-md mx-2 mt-5 p-6 rounded-md flex h-15'>
         <div className='flex justify-center gap-10 lg:gap-16 flex-wrap'>
           <p className='font-medium'>Trusted by</p>
-          <img className='h-6' src={assets.microsoft_logo} alt="" />
-          <img className='h-6' src={assets.walmart_logo} alt="" />
-          <img className='h-6' src={assets.accenture_logo} alt="" />
-          <img className='h-6' src={assets.amazon_logo} alt="" />
-          <img className='h-6' src={assets.samsung_logo} alt="" />
-          <img className='h-6' src={assets.adobe_logo} alt="" />
+          <img className='h-6 ' src={assets.zomato_logo} alt="" />
+          <img className='h-8' src={assets.ola_logo} alt="" />
+          <img className='h-6' src={assets.Uber_Logo} alt="" />
+          <img className='h-6 ' src={assets.Dominos_logo} alt="" />
+          <img className='h-6' src={assets.OYO_logo} alt="" />
+          <img className='h-8' src={assets.mcDonalds_logo} alt="" />
         </div>
       </div>
     </div>

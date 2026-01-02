@@ -55,7 +55,7 @@ export const clerkWebhooks = async (req, res) => {
                 console.log('👤 Creating user in database...');
                 
                 const userData = {
-                    _id: data.id,
+                    clerkId: data.id,
                     email: data.email_addresses[0]?.email_address || 'no-email@example.com',
                     name: `${data.first_name || ''} ${data.last_name || ''}`.trim() || 'User',
                     image: data.image_url || '',
