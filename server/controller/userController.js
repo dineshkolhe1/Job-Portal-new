@@ -179,7 +179,6 @@ export const getUserJobApplication = async(req,res) =>{
         res.json({success:false, message:error.message})
     }
 }
-
 //update user profile (resume)
 export const updateUserResume = async(req,res) => {
     try {
