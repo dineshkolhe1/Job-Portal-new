@@ -34,11 +34,10 @@ import samsung_logo from './samsung_logo.png'
 import adobe_logo from './adobe_logo.png'
 import amazon_logo from './amazon_logo.png'
 import zomato_logo from './zomato_logo.png'
-import swiggy_logo from './swiggy_logo.png'
-import Dominos_logo from './Dominos_logo.png'
+import dominos_logo from './dominos_logo.png'
 import mcDonalds_logo from './mcDonalds_logo.png'
-import OYO_logo from './OYO_logo.png'
-import Uber_Logo from './Uber_Logo.png'
+import oyo_logo from './oyo_logo.png'
+import uber_Logo from './uber_Logo.png'
 import ola_logo from './ola_logo.png'
 import burgerKing_logo from './burgerKing_logo.png'
 
@@ -81,11 +80,10 @@ export const assets = {
     adobe_logo,
     amazon_logo,
     zomato_logo,
-    swiggy_logo,
-    Dominos_logo,
+    dominos_logo,
     mcDonalds_logo,
-    OYO_logo,
-    Uber_Logo,
+    oyo_logo,
+    uber_Logo,
     ola_logo,
     burgerKing_logo
 }
