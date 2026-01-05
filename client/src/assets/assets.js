@@ -35,7 +35,7 @@ import adobe_logo from './adobe_logo.png'
 import amazon_logo from './amazon_logo.png'
 import zomato_logo from './zomato_logo.png'
 import dominos_logo from './dominos_logo.png'
-import mcDonalds_logo from './mcDonalds_logo.png'
+import mcdonalds_logo from './mcdonalds_logo.png'
 import oyo_logo from './oyo_logo.png'
 import uber_logo from './uber_logo.png'
 import ola_logo from './ola_logo.png'
@@ -78,7 +78,7 @@ export const assets = {
     amazon_logo,
     zomato_logo,
     dominos_logo,
-    mcDonalds_logo,
+    mcdonalds_logo,
     oyo_logo,
     uber_logo,
     ola_logo,
