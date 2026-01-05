@@ -40,7 +40,6 @@ import oyo_logo from './oyo_logo.png'
 import uber_logo from './uber_logo.png'
 import ola_logo from './ola_logo.png'
 
-
 export const assets = {
     logo,
     search_icon,
@@ -84,7 +83,6 @@ export const assets = {
     uber_logo,
     ola_logo,
 }
-
 export const JobCategories = [
     "Restaurant Waiter",
     "Fast Food Jobs",
@@ -100,7 +98,6 @@ export const JobCategories = [
     "Office Jobs",
     "Tuition Jobs"
 ]
-
 export const JobLocations = [
     "Pune",
     "Mumbai",
