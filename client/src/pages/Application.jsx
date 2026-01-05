@@ -20,35 +20,80 @@ const Application = () => {
   const {backendUrl, userData, userApplications, fetchUserData, fetchUserApplications} = useContext(AppContext)
 
   const updateResume = async () => {
+  try {
+    if (!resume) {
+      toast.error("Please select a resume first");
+      return;
+    }
 
-      try {  
-        const formData = new FormData()
-        formData.append('resume',resume)
+    const formData = new FormData();
+    formData.append("resume", resume);
 
-        const token = await getToken()
+    const token = await getToken();
 
-        const {data} = await axios.post(backendUrl+'/api/users/update-resume',
-          formData,
-          {headers:{Authorization : `Bearer ${token}`}}
-        )
-        if(data.success){
-          toast.success(data.message)
-          await fetchUserData()
-        }else{
-          toast.error(data.message)
-        }
-
-      } catch (error) {
-        toast.error(error.message)
+    const { data } = await axios.post(
+      `${backendUrl}/api/users/update-resume`,
+      formData,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       }
-      setIsEdit(false)
-      setResume(null)
+    );
+     
+    if (data.success) {
+      toast.success(data.message);
+      await fetchUserData();
+      setIsEdit(false);
+      setResume(null);
+    } else {
+      toast.error(data.message || "Resume upload failed");
+    }
+
+  } catch (error) {
+    toast.error(
+      error.response?.data?.message || error.message || "Something went wrong"
+    );
   }
-  useEffect(() =>{
+};
+
+useEffect(() =>{
     if(user){
       fetchUserApplications()
     }
   },[user])
+
+
+  // const updateResume = async () => {
+  //     try {  
+  //       const formData = new FormData()
+  //       formData.append('resume',resume)
+
+  //       const token = await getToken()
+
+  //       const {data} = await axios.post(backendUrl+'/api/users/update-resume',
+  //         formData,
+  //         {headers:{Authorization : `Bearer ${token}`}}
+  //       )
+  //       if(data.success){
+  //         toast.success(data.message)
+  //         await fetchUserData()
+
+  //       }else{
+  //         toast.error(data.message)
+  //       }
+
+  //     } catch (error) {
+  //       toast.error(error.message)
+  //     }
+  //     setIsEdit(false)
+  //     setResume(null)
+  // }
+  // useEffect(() =>{
+  //   if(user){
+  //     fetchUserApplications()
+  //   }
+  // },[user])
 
   return (
     <>

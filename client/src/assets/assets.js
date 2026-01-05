@@ -39,7 +39,6 @@ import mcDonalds_logo from './mcDonalds_logo.png'
 import oyo_logo from './oyo_logo.png'
 import uber_logo from './uber_logo.png'
 import ola_logo from './ola_logo.png'
-import burgerKing_logo from './burgerKing_logo.png'
 
 
 export const assets = {
@@ -84,7 +83,6 @@ export const assets = {
     oyo_logo,
     uber_logo,
     ola_logo,
-    burgerKing_logo
 }
 
 export const JobCategories = [
