@@ -48,9 +48,9 @@ const Hero = () => {
           <p className='font-medium'>Trusted by</p>
           <img className='h-6 ' src={assets.zomato_logo} alt="" />
           <img className='h-8' src={assets.ola_logo} alt="" />
-          <img className='h-6' src={assets.Uber_Logo} alt="" />
-          <img className='h-6 ' src={assets.Dominos_logo} alt="" />
-          <img className='h-6' src={assets.OYO_logo} alt="" />
+          <img className='h-6' src={assets.uber_Logo} alt="" />
+          <img className='h-6 ' src={assets.dominos_logo} alt="" />
+          <img className='h-6' src={assets.oyo_logo} alt="" />
           <img className='h-8' src={assets.mcDonalds_logo} alt="" />
         </div>
       </div>

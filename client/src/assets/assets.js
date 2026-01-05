@@ -37,7 +37,7 @@ import zomato_logo from './zomato_logo.png'
 import dominos_logo from './dominos_logo.png'
 import mcDonalds_logo from './mcDonalds_logo.png'
 import oyo_logo from './oyo_logo.png'
-import uber_Logo from './uber_Logo.png'
+import uber_logo from './uber_logo.png'
 import ola_logo from './ola_logo.png'
 import burgerKing_logo from './burgerKing_logo.png'
 
@@ -83,7 +83,7 @@ export const assets = {
     dominos_logo,
     mcDonalds_logo,
     oyo_logo,
-    uber_Logo,
+    uber_logo,
     ola_logo,
     burgerKing_logo
 }
