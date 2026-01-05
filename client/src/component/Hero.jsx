@@ -46,12 +46,12 @@ const Hero = () => {
       <div className='border border-gray-300 shadow-md mx-2 mt-5 p-6 rounded-md flex h-15'>
         <div className='flex justify-center gap-10 lg:gap-16 flex-wrap'>
           <p className='font-medium'>Trusted by</p>
-          <img className='h-6 ' src={assets.zomato_logo} alt="" />
-          <img className='h-8' src={assets.ola_logo} alt="" />
-          <img className='h-6' src={assets.uber_Logo} alt="" />
-          <img className='h-6 ' src={assets.dominos_logo} alt="" />
-          <img className='h-6' src={assets.oyo_logo} alt="" />
-          <img className='h-8' src={assets.mcDonalds_logo} alt="" />
+          <img className='h-6 ' src={assets.zomato_logo} alt="Zomato" />
+          <img className='h-8' src={assets.ola_logo} alt="Ola" />
+          <img className='h-6' src={assets.uber_logo} alt="Uber" />
+          <img className='h-6 ' src={assets.dominos_logo} alt="Dominos" />
+          <img className='h-6' src={assets.oyo_logo} alt="OYO" />
+          <img className='h-8' src={assets.mcDonalds_logo} alt="McDonalds" />
         </div>
       </div>
     </div>

@@ -42,7 +42,6 @@ import ola_logo from './ola_logo.png'
 import burgerKing_logo from './burgerKing_logo.png'
 
 
-
 export const assets = {
     logo,
     search_icon,
