@@ -1,6 +1,5 @@
 import express from 'express'
 import {getJobs, getJobById } from '../controller/jobController.js';
-import mongoose from 'mongoose';
 
 const router = express.Router()
 
@@ -9,8 +8,5 @@ router.get('/',getJobs)
 
 // Route to get a single job by id 
 router.get('/:id',getJobById)
-
-
-
 
 export default router;

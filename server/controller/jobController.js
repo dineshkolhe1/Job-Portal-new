@@ -1,8 +1,6 @@
 import Job from "../models/job.js"
 import mongoose from "mongoose"
 
-
-
 // get all jobs 
 export const getJobs = async (req, res) => {
     try {
@@ -17,7 +15,6 @@ export const getJobs = async (req, res) => {
     }
 
 }
-
 // get a single job by ID
 export const getJobById = async (req,res) => {
     try {
