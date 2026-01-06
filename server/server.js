@@ -2,6 +2,7 @@ import './config/instrument.js'
 import express from 'express'
 import cors from 'cors'
 import 'dotenv/config'
+import bodyParser from "body-parser";
 import connectDB from './config/db.js'
 import * as Sentry from "@sentry/node";
 import { clerkWebhooks } from './controller/webhooks.js'
@@ -17,9 +18,7 @@ const app = express()
 
 //Connect to Database 
 connectDB()
-await connectCloudinary()
-
-//Middlewares 
+await connectCloudinary() 
 // app.use(cors())
 app.use(
   cors({
@@ -34,8 +33,11 @@ app.use(
   })
 );
 
-// ⚠️ IMPORTANT: Webhook route MUST come BEFORE express.json()
-app.post('/webhooks', clerkWebhooks)
+app.post(
+  "/api/webhooks/clerk",
+  bodyParser.raw({ type: "application/json" }),
+  clerkWebhooks
+);
 
 // NOW add express.json() for other routes
 app.use(express.json())
