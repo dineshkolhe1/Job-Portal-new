@@ -51,7 +51,7 @@ const Hero = () => {
           <img className='h-6' src={assets.uber_logo} alt="Uber" />
           <img className='h-6 ' src={assets.dominos_logo} alt="Dominos" />
           <img className='h-6' src={assets.oyo_logo} alt="OYO" />
-          <img className='h-8' src={assets.mcDonalds_logo} alt="McDonalds" />
+          <img className='h-8' src={assets.mcdonalds_logo} alt="McDonalds" />
         </div>
       </div>
     </div>
