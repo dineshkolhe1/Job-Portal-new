@@ -1,4 +1,4 @@
-import logo from "./logo2.svg";
+import logo from "./logo.svg";
 import search_icon from "./search_icon.svg";
 import company_icon from "./company_icon.svg";
 import microsoft_logo from "./microsoft_logo.svg";
@@ -33,14 +33,6 @@ import lock_icon from './lock_icon.svg'
 import samsung_logo from './samsung_logo.png'
 import adobe_logo from './adobe_logo.png'
 import amazon_logo from './amazon_logo.png'
-import zomato_logo from './zomato_logo.png'
-import dominos_logo from './dominos_logo.png'
-import mcdonalds_logo from './mcdonalds_logo.png'
-import oyo_logo from './oyo_logo.png'
-import uber_logo from './uber_logo.png'
-import ola_logo from './ola_logo.png'
-import blinkit from './blinkit.png'
-import DMart from './DMart.jpg'
 
 export const assets = {
     logo,
@@ -77,44 +69,28 @@ export const assets = {
     lock_icon,
     samsung_logo,
     adobe_logo,
-    amazon_logo,
-    zomato_logo,
-    dominos_logo,
-    mcdonalds_logo,
-    oyo_logo,
-    uber_logo,
-    ola_logo,
-    blinkit,
-    DMart,
+    amazon_logo
 }
+
 export const JobCategories = [
-"Restaurants & Cafes : 🍽",
-  "Supermarkets : 🛒",
-  "Delivery & Logistics : 🚚",
-  "Driver Jobs : 🚗",
-  "Retail Stores : 🛍",
-  "Coaching Institutes : 🎓",
-  "Clinics & Hospitals : 🏥",
-  "Security Jobs : 🛡",
-  "Event Companies : 🎉",
-  "Technician Jobs :🔧",
-  "Hotel Jobs : 🏨",
-  "Fitness Centers : 💪",
-  "Home Services : 🏠",
-  "Tuition Jobs : 📚",
-  "Office Jobs : 🏢",
-  "Media Agencies : 🎬",
+    "Programming",
+    "Data Science",
+    "Designing",
+    "Networking",
+    "Management",
+    "Marketing",
+    "Cybersecurity",
 ]
 
 export const JobLocations = [
-    "Pune",
-    "Mumbai",
     "Bangalore",
+    "Washington",
     "Hyderabad",
+    "Mumbai",
+    "California",
     "Chennai",
-    "Indore"
+    "New York"
 ]
-
 
 // Sample data for Manage Jobs Page
 export const manageJobsData = [
